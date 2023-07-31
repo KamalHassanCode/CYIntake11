@@ -1,0 +1,40 @@
+
+#selectMe{
+    color: red;
+}
+
+.parent {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black ;
+}
+
+li {
+    font-size: 26px;
+}
+
+
+.Green {
+    color: green;
+}
+
+.Blue { 
+    color: blue;
+}
+
+.Yellow { 
+ color: yellow;
+}
+
+.Red { 
+    color: red;
+}
+
+#dimentionDiv{
+background-color: red
+width: 100px 
+height:100px
+}
+
+
+    
