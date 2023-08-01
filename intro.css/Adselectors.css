@@ -1,0 +1,10 @@
+#parent p {
+    font-weight: bold;
+}
+
+
+.child {
+    border: 0;
+    text-decoration: none ;
+
+}
