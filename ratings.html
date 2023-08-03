@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .parent {
+            width: 500px;
+            height: 250px;
+            background-color: #3d3d3d;
+
+
+        }
+
+        div {
+            border: 1px solid white;
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-around;
+            align-content: flex-end;
+            align-items: center;
+        }
+
+
+        .bar {
+            width: 300px;
+            height: 10px;
+            background-color: gray;
+            border-radius: 500px;
+            position: relative;
+        }
+
+        .bg {
+
+            height: 100%;
+            background-color: yellow;
+            border-radius: 500px;
+        }
+
+        #bg1 {
+            width: 20%;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+        }
+        #bg2 {
+            width: 5%;
+        }
+        #bg3 {
+            width: 7%;
+        }
+        #bg4 {
+            width: 50%
+        }
+        #bg5 {
+            width: 40%;
+        
+        }
+    </style>
+
+
+    <div class="parent">
+        <div class="rating">
+            <h2>
+                Rating
+            </h2>
+        </div>
+        <div class="rows">
+            <div class="row">
+                <div class="bar">
+                    <div id="bg1" class="bg"></div>
+
+                </div>
+                <div class="stars">
+                    &#9733;&#9734;&#9734;&#9734;&#9734;
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="bar">
+                    <div id="bg2" class="bg"></div>
+                </div>
+                <div class="stars">
+                    &#9733;&#9734;&#9734;&#9734;&#9734;
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="bar">
+                    <div id="bg3" class="bg"></div>
+
+                </div>
+                <div class="stars">
+                    &#9733;&#9734;&#9734;&#9734;&#9734;
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="bar">
+                    <div id="bg4" class="bg"></div>
+                </div>
+                <div class="stars">
+                    &#9733;&#9734;&#9734;&#9734;&#9734;
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="bar">
+                    <div id="bg5" class="bg"></div> 
+                </div>
+                <div class="stars">
+                    &#9733;&#9734;&#9734;&#9734;&#9734;
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
