@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid white;
+    }
+    
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    
+    th {
+        background-color: #f2f2f2;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    
+</style>
+</head>
+<body>
+<h1>Drink Description</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Instructions</th>
+        </tr>
+    </thead>
+    <tbody id="drinkTableBody"></tbody>
+</table>
+
+<script>
+    const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita%25";
+    
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log("data", data);
+            const tableBody = document.getElementById("drinkTableBody");
+            
+            let temp = "";
+            data.drinks.forEach((drink) => {
+                temp += `
+                    <tr>
+                        <td>${drink.strDrink}</td>
+                        <td>${drink.strCategory}</td>
+                        <td>${drink.strInstructions}</td>
+                    </tr>
+                `;
+            });
+            tableBody.innerHTML = temp;
+        })
+        .catch((err) => console.log("error", err));
+</script>
+</body>
+</html>

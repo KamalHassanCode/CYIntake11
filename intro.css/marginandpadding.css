@@ -1,0 +1,8 @@
+div {
+    width: 25px;
+    height: 25px;
+    border: 1px solid;
+    display: inline-block;
+    margin: 10px;   
+}
+    

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+    <script>
+       let spaceship = {
+  rooms: [
+    {
+      name: "Living Quarters",
+      connections: ["Life Support", "Dining Area"]
+    },
+    {
+      name: "Life Support",
+      connections: ["Living Quarters", "Dining Area"]
+    },
+    {
+      name: "Dining Area",
+      connections: ["Life Support", "Living Quarters", "Engineering", "Weapons"]
+    },
+    {
+      name: "Weapons",
+      connections: ["Dining Area", "Bridge"]
+    },
+    {
+      name: "Bridge",
+      connections: ["Weapons", "Engineering"]
+    },
+    {
+      name: "Engineering",
+      connections: ["Dining Area", "Bridge"]
+    }
+
+  ],
+  user1: {
+    currentLocation: "Living Quarters",
+    availableRooms: []
+    
+  },
+  user2 : {
+    currentLocation: "Bridge",
+    availableRooms: []
+},
+  }
+function autoMoveUser2() {
+  const spaceship = Math.floor(Math.random() * user2.availableRooms.length);
+  const destination = user2.availableRooms[randomIndex];
+  user2.moveThroughSpaceship(destination);
+  const randomInterval = Math.random() * 3000 + 2000;
+  setTimeout(autoMoveUser2, randomInterval);
+
+
+// Start automated movement for user 2
+autoMoveUser2();
+}
+
+
+
+function moveThroughSpaceship(destination) {
+  const currentRoom = spaceship.rooms.find(room => room.name === spaceship.user.currentLocation);
+
+  if (currentRoom.connections.includes(destination)) {
+    spaceship.user.currentLocation = destination;
+    console.log(`Move to ${destination}.`);
+    console.log(`You are now in the ${spaceship.user.currentLocation}.`);
+  } else {
+    console.log(`Cannot move to ${destination}.`);
+    console.log(`The ${spaceship.user.currentLocation} doesn't connect to ${destination}.`);
+  }
+}
+let user1= ("User 1", "Living Quarters");
+let user2 =("User 2", "Bridge");
+
+// Example usage
+user1.moveThroughSpaceship("Dining Area");
+user2.moveThroughSpaceship("Weapons");
+user1.moveThroughSpaceship("Weapons");
+user2.moveThroughSpaceship("Bridge");
+
+
+
+
+
+
+
+
+    
+    
+         
+    
+    
+    
+    </script>
+
+</body>
+</html>

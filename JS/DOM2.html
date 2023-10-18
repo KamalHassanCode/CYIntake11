@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Create a p tag that says "HELLO WORLD" and append it to the page.
+        let newP = document.createElement("p");
+        newP.textContent = "HELLO WORLD";
+        document.body.appendChild(newP);
+
+        // Create a list that counts from one to three and append it to the page
+
+        let orderedList = document.createElement("ol");
+        for (let i = 1; i <= 3; i++) {
+            let listItem = document.createElement("li");
+            listItem.textContent = i;
+            orderedList.appendChild(listItem);
+        }
+
+
+
+
+        // Recreate the table with DOM
+        let table = document.createElement('table')
+        table.className = 'table';
+        document.body.appendChild(table)
+        
+        let thead = document.createElement('thead')
+        table.appendChild(thead)
+        
+        let tbody = document.createElement('tbody')
+        table.appendChild(tbody)
+        
+        let trh = document.createElement('tr')
+        trh.className = 'header'
+        thead.appendChild(trh)
+
+        const th1 = document.createElement('th')
+        th1.innerHTML = "Name";
+        thead.appendChild(th1)
+        const th2 = document.createElement('th')
+        th2.innerHTML = "Name";
+        thead.appendChild(th2)
+        const th3 = document.createElement('th')
+        th3.innerHTML = "Name";
+        thead.appendChild(th3)
+        const trb = document.createElement('tr')
+        tbody.appendChild(trb)
+        
+        const th4 = document.createElement('th')
+        th4.innerHTML = "Name";
+        thead.appendChild(th1)
+        const th5 = document.createElement('th')
+        th5.innerHTML = "Name";
+        thead.appendChild(th2)
+        const th6 = document.createElement('th')
+        th6.innerHTML = "Name";
+        thead.appendChild(th3)
+        const trb2 = document.createElement('tr')
+        tbody.appendChild(trb2)
+        
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+

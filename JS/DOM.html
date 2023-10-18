@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> Hello</p>
+    <p>World</p>
+    
+    <div id="myDiv">
+        <p class="nestedP">I don't want to be green</p>
+        <p class="nestedP">I do want to be green</p>
+    </div>
+
+    <a id="google">google.com</a>
+
+   
+   
+   
+   <script>
+
+        // Select all the p tags in the document and change their color to green
+        
+        let p = document.getElementsByTagName("p");
+        for (let i = 0; i < p.length; i++) {
+            p[i].style.color = "green";
+        }
+
+        // Give the myDiv div a border that is 1px width and solid style.
+        console.log(myDiv)
+        for(let i = 0; i < myDiv.length; i++){
+            myDiv[i].style.border = "1px solid"
+        }
+        
+        // Change the color of the p tag that says it doesn't want to be green to black
+        document.getElementsByClassName("nestedP")[0].style.color = "black"
+
+        // Console.log the innerText of every p tag on this page.
+        for(let i = 0; i < p.length; i++){
+            console.log(p[i].innerText)
+        }
+
+        // go to this page and find all of the li tags on it, https://www.w3schools.com/. Console.log the innerHTML of each element.
+               
+
+        // Make the a tag in the document open google.com in a new tab when it is clicked.
+        let googleLink = document.getElementById("google");
+        googleLink.href = "https://google.com"
+        googleLink.target = "_blank"
+    </script>
+
+
+</body>
+</html>

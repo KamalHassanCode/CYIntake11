@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text and Headling change</title>
+</head>
+<body>
+    <h1 id="heading">Original Heading</h1>
+
+    <input type="text" id="textInput" placeholder="Type here">
+    <button id="changeHeadingButton">Change Heading</button>
+    
+    <form id="submitForm">
+        <input type="submit" value="Submit Form">
+    </form>
+
+    <p>Discover new breaching strategies with South Korean powerhouse, Ram equipped with the deployable BU-GI Auto Breacher, a mini tank capable of forging a path of destruction. Year 8 Season 3 brings exciting new updates to the Siege playlist like the upgraded Quick Match 2.0 and a redesigned Unranked(now called Standard), offering a streamlined Siege experience. Heavy Mettle will also introduce a fresh Player Commendation system allowing players to rate other players on the experience they had playing together, and an all-new Arcade game mode in the form of Weapon Roulette to keep you adapting to your arsenal on the fly!</p>
+    <button id="uppercaseButton">Uppercase</button>
+
+    <script>
+        // 1. onchange event to change heading
+        const textInput = document.getElementById("textInput");
+        const heading = document.getElementById("heading");
+
+        textInput.onchange = function() {
+            heading.textContent = textInput.value;
+        };
+
+        // 2. submit event to show alert
+        const submitForm = document.getElementById("submitForm");
+
+        submitForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent actual form submission
+            alert("Form submitted!");
+        });
+
+        // 3. click event to turn content to uppercase
+        const uppercaseButton = document.getElementById("uppercaseButton");
+        const contentToChange = document.querySelector("p");
+
+        uppercaseButton.addEventListener("click", function() {
+            contentToChange.textContent = contentToChange.textContent.toUpperCase();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <h1 id="header">Click here to get IP address information</h1>
+    <div id="ipInfo"></div>
+    <Script>
+        let header = document.getElementById("header");
+const ipInfoContainer = document.getElementById("ipInfo");
+
+header.addEventListener("click", () => {
+    // Make a request to the ipinfo.io API
+    fetch("http://ip-api.com/json")
+        .then((response) => response.json())
+        .then((data) => {
+            
+            const infoHTML = `
+                <h2>IP Address Information:</h2>
+                <ul>
+                    <li><strong>IP Address:</strong> ${data.ip}</li>
+                    <li><strong>Hostname:</strong> ${data.hostname}</li>
+                    <li><strong>City:</strong> ${data.city}</li>
+                    <li><strong>Region:</strong> ${data.region}</li>
+                    <li><strong>Country:</strong> ${data.country}</li>
+                </ul>
+            `;
+          
+            
+            ipInfoContainer.innerHTML = infoHTML;
+        })
+        .catch((error) => {
+            ipInfoContainer.innerHTML = "<p>Error fetching IP information</p>";
+            console.error("Error fetching IP information:", error);
+        });
+});
+
+
+
+
+
+
+    </Script>
+</body>
+</html>

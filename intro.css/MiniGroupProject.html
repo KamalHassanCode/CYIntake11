@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Create a system for an online store.
+        // Use the provided objects and create functions that will, add an item to the cart, calculate the tax, calculate the total, remove an item from the cart, and checkout.
+        // Anytime the user checks out make sure to remove the quantity from the items stock
+        // I have created the addItems function to use as an example for the other functions.
+
+        let store = {
+            availableItems: [
+                {
+                    name: "skateboard",
+                    id: 1,
+                    price: 5.99,
+                    stock: 544
+                },
+                {
+                    name: "celery",
+                    id: 13,
+                    price: 1.99,
+                    stock: 13
+                },
+                {
+                    name: "bread",
+                    id: 3,
+                    price: 3.59,
+                    stock: 47
+                },
+                {
+                    name: "pumpkin",
+                    id: 14,
+                    price: 10.98,
+                    stock: 33
+                },
+                {
+                    name: "candy",
+                    id: 26,
+                    price: 1.99,
+                    stock: 400
+                }
+            ]
+        }
+        let cart = {
+  items: [
+    {
+      name: "skateboard",
+      id: 1,
+      price: 5.99,
+      quantity: 1
+    },
+    {
+      name: "celery",
+      id: 13,
+      price: 1.99,
+      quantity: 5
+    },
+    {
+      name: "bread",
+      id: 3,
+      price: 3.59,
+      quantity: 2
+    }
+    
+  ],
+  total: 0,
+  grandTotal: 0
+};
+
+function calculateTax(subtotal, taxRate) {
+  return subtotal * (taxRate / 100);
+}
+
+function calculateTotal(cart) {
+  let total = 0;
+
+  for ( let item of cart.items) {
+    total += item.price * item.quantity;
+  }
+
+  return total;
+}
+
+let taxRate = 13;
+
+// Calculate tax and total
+const subtotal = calculateTotal(cart);
+const tax = calculateTax(subtotal, taxRate);
+const grandTotal = subtotal + tax;
+
+// Update cart object
+cart.total = subtotal;
+cart.grandTotal = grandTotal;
+
+console.log("Cart Subtotal:", cart.total.toFixed(2));
+console.log("Tax:", tax.toFixed(2));
+console.log("Grand Total:", cart.grandTotal.toFixed(2));
+
+function removeFromCart(cart, itemId) {
+  const itemIndex = cart.findIndex(item => item.id === itemId);
+
+  if (itemIndex !== -1) {
+    const removedItem = cart.splice(itemIndex, 1)[0];
+    console.log(`Removed ${removedItem.name} from the cart.`);
+  } else {
+    console.log("Item not found in the cart.");
+  }
+}
+
+function checkout(cart, taxRate) {
+  let subtotal = calculateTotal(cart);
+  let tax = calculateTax(subtotal, taxRate);
+  let grandTotal = subtotal + tax;
+
+  // Simulating payment processing
+  console.log("Payment processed. Checkout successful!");
+  console.log("Subtotal:", subtotal.toFixed(2));
+  console.log("Tax:", tax.toFixed(2));
+  console.log("Grand Total:", grandTotal.toFixed(2));
+
+  // Clear the cart after successful checkout
+  cart.length = 0;
+}
+
+function removeFromCart(cart, itemId) {
+  const itemIndex = cart.findIndex(item => item.id === itemId);
+
+  if (itemIndex !== -1) {
+    const removedItem = cart.splice(itemIndex, 1)[0];
+    console.log(`Removed ${removedItem.name} from the cart.`);
+  } else {
+    console.log("Item not found in the cart.");
+  }
+}
+
+function checkout(cart, taxRate) {
+  let subtotal = calculateTotal(cart);
+  let tax = calculateTax(subtotal, taxRate);
+  let grandTotal = subtotal + tax;
+
+  // Simulating payment processing
+  console.log("Payment processed. Checkout successful!");
+  console.log("Subtotal:", subtotal.toFixed(2));
+  console.log("Tax:", tax.toFixed(2));
+  console.log("Grand Total:", grandTotal.toFixed(2));
+
+  // Clear the cart after successful checkout
+  cart.length = 0;
+}
+
+// Example usage
+removeFromCart(items, 13); // Remove "celery" from the cart
+console.log("Items after removal:", items);
+checkout(items, 8); // Checkout the items in the cart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+       
+        
+        
+    </script>
+
+
+</body>
+
+</html>

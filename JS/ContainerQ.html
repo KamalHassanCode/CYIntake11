@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Elements to Container</title>
+</head>
+<body>
+    <div id="container" style= "width: 300px; height: 400px; border: 1px solid;">
+    </div>
+
+
+    <Script>
+  //Add the following elements to the container using ONLY JavaScript and the DOM methods shown above.
+
+//a <p> with red text that says “Hey I’m red!”
+//an <h3> with blue text that says “I’m a blue h3!”
+//a <div> with a black border and pink background color with the following elements inside of it:
+//another <h1> that says “I’m in a div”
+//a <p> that says “ME TOO!”
+    
+    
+    
+
+
+  
+    let container = document.getElementById("container");
+
+   
+    var paragraphElement = document.createElement("paragraph");
+    paragraphElement.textContent = "Hey Im red!";
+    paragraphElement.style.color = "red";
+    container.appendChild(paragraphElement);
+
+   
+    var h3Element = document.createElement("h3");
+    h3Element.textContent = "I'm a blue h3!";
+    h3Element.style.color = "blue";
+    container.appendChild(h3Element);
+
+   
+    var divElement = document.createElement("div");
+    divElement.style.border = "1px solid black";
+    divElement.style.backgroundColor = "pink";
+
+   
+   var h1Element = document.createElement("h1");
+   h1Element.textContent = "I'm in a div";
+    divElement.appendChild(h1Element);
+
+    
+    var pElementInsideDiv = document.createElement("p");
+    pElementInsideDiv.textContent = "ME TOO!";
+    divElement.appendChild(pElementInsideDiv);
+    container.appendChild(divElement);
+    
+
+
+
+
+
+
+
+
+    </Script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

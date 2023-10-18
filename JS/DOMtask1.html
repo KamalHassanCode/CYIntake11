@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        My heading
+    </h1>
+    <p>
+        <span>Lorem</span> <span>ipsum</span> <span>dolor</span> <span>sit amet</span> <span>consectetur</span> <span>adipisicing</span> .elit <span>Voluptate</span> consequuntur <span>deserunt</span>, aspernatur libero eius consequatur ad <span>impedit</span> itaque quod, natus, pariatur <span>veniam</span> architecto commodi asperiores aut voluptas sint amet fugiat.
+    </p>
+    <button onclick="changeColor()">Click me</button>
+<script>
+function changeColor() {
+            const spans = document.querySelectorAll("span");
+            for (let i = 0; i < spans.length; i++) {
+                spans[i].style.backgroundColor = "yellow";
+            }
+        }
+
+
+
+</script>
+
+
+
+</body>
+</html>

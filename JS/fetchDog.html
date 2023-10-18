@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Random Dog Pictures</h1>
+    <button id="randomButton">Load Random Dog</button>
+    <div id="breedButtons"></div>
+    <ul id="breedList"></ul>
+    <div id="dogImageContainer">
+        <img id="dogImage" src="" alt="Random Dog">
+    </div>
+
+
+    <script>
+       // What to do:Add a button that when clicked, loads a random dog picture.
+       //Add 5 more buttons, each labelled with a breed. When the button is clicked, a random picture of that breed is shown.
+       //Print a list of all the dog breeds available in the page.
+      
+       const randomButton = document.getElementById("randomButton");
+        const breedButtonsContainer = document.getElementById("breedButtons");
+        const breedList = document.getElementById("breedList");
+        const dogImage = document.getElementById("dogImage");
+
+        let displayedBreeds = new Set(); // To keep track of displayed breeds
+
+        // Function to load a random dog image
+        function loadRandomDog() {
+            fetch("https://dog.ceo/api/breeds/image/random")
+                .then((res) => res.json())
+                .then((data) => {
+                    dogImage.src = data.message;
+                })
+                .catch((error) => {
+                    console.error("Error loading random dog image:", error);
+                });
+        }
+
+        // Function to load a random dog image of a specific breed
+        function loadRandomDogByBreed(breed) {
+            fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
+                .then((res) => res.json())
+                .then((data) => {
+                    dogImage.src = data.message;
+                })
+                .catch((error) => {
+                    console.error(`Error loading random ${breed} dog image:`, error);
+                });
+        }
+
+        // Function to load dog breeds and create buttons
+        function loadDogBreeds() {
+            fetch("https://dog.ceo/api/breeds/list/all")
+                .then((res) => res.json())
+                .then((data) => {
+                    const breeds = Object.keys(data.message);
+                    // Limit to 10 different breeds
+                    const uniqueBreeds = breeds.slice(0, 10);
+
+                    // Create buttons for each breed
+                    uniqueBreeds.forEach((breed) => {
+                        const breedButton = document.createElement("button");
+                        breedButton.textContent = breed;
+                        breedButton.addEventListener("click", () => loadRandomDogByBreed(breed));
+                        breedButtonsContainer.appendChild(breedButton);
+
+                        // Add breed to the list
+                        const breedItem = document.createElement("li");
+                        breedItem.textContent = breed;
+                        breedList.appendChild(breedItem);
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error loading dog breeds:", error);
+                });
+        }
+
+        // Load random dog image on page load
+        loadRandomDog();
+
+        // Load dog breeds and create buttons
+        loadDogBreeds();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+       
+    </script>
+</body>
+</html>

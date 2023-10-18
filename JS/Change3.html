@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Question 1 -->
+
+    <div id="container" style="width: 100px; height: 100px; border: solid;"></div>
+
+    <script>
+        //Create a div and append it to the body
+
+
+        // Create a div element
+        var divElement = document.createElement("div");
+
+        // Set attributes for the div
+        divElement.id = "container";
+        divElement.style.width = "100px";
+        divElement.style.height = "100px";
+        divElement.style.border = "solid";
+
+        // Append the div to the body
+        document.body.appendChild(divElement);
+
+        //Create three p tags that say 'Hello World'. Append one to the body, one too the div, and one to the div you created
+        var divElement = document.getElementById("container");
+
+        // Create three p tags
+        var pTag1 = document.createElement("p");
+        pTag1.textContent = "Hello World";
+
+        var pTag2 = document.createElement("p");
+        pTag2.textContent = "Hello World";
+
+        var pTag3 = document.createElement("p");
+        pTag3.textContent = "Hello World";
+        document.body.appendChild(pTag1);
+
+        // Append pTag2 to the div
+        divElement.appendChild(pTag2);
+
+        // Append pTag3 to the divElement (container)
+        divElement.appendChild(pTag3);
+
+
+
+
+    </script>
+
+
+
+    <!-- Question 2 -->
+
+    <ul>
+        <li class="RedBull">RedBull</li>
+        <li class="Mercedes">Mercedes</li>
+        <li class="Aston Martin"></li>
+        <li class="Ferrari">Ferrari</li>
+        <li class="Mclaren">Mclaren</li>
+    </ul>
+
+    <script>
+        // Add "Third" to the third list item
+        var thirdListItem = document.getElementsByTagName("li")[2];
+    </script>
+
+
+    <!-- Question 3 -->
+    <style>
+        .grid {
+            width: 30vh;
+            height: 20vh;
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+    </style>
+
+
+    <div class="grid">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <script>
+        //Pick a random box in the grid and change its background color to red;
+    </script>
+
+
+    <!-- Question 4 -->
+
+    <script>
+        // Create a new p tag for each letter in this string. Append all of the p tags to the page.
+        let myString = "Hello World"
+    </script>
+</body>
+
+</html>

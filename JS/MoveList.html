@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <html>
+<head>
+    <title>Item Mover</title>
+</head>
+<body>
+    <h2>List of Hobbies</h2>
+    <ul id="firstList">
+        <li>Basketball</li>
+        <li>Jogging</li>
+        <li>Video Games</li>
+        <li>Tv shows/movies</li>
+        <li>Sleeping</li>
+    </ul>
+    <ul id="secondList">
+        <li>Cars</li>
+        <li>Bike Rides</li>
+        <li>Sleeping</li>
+        <li>Swimming</li>
+        
+        
+        <!-- Second list will be populated dynamically -->
+    </ul>
+    <button id="moveButton">Move Item</button>
+
+    <script>
+        document.getElementById("moveButton").addEventListener("click", function() {
+            // Get the first list and second list elements
+            var firstList = document.getElementById("firstList");
+            var secondList = document.getElementById("secondList");
+
+            // Check if there are any items in the first list
+            if (firstList.children.length > 0) {
+                // Remove the first item from the first list
+                var itemToMove = firstList.removeChild(firstList.children[0]);
+
+                // Add the removed item to the second list
+                secondList.appendChild(itemToMove);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+    }
+    main {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+​
+    }
+    
+    input {
+        width: 60%;
+    }
+ 
+    #id {
+    display: flex;
+    width: 10px;
+    height: 10px;
+    justify-content: flex-end;
+  }
+
+  
+   
+</style>
+</head>
+<body>
+<!-- 
+    CONSIDER: 
+        The semantics of a page when building your website. 
+
+    RESOURCE: https://www.w3schools.com/html/html5_semantic_elements.asp
+-->
+<header>
+    <nav>
+        <div id="leftnav" class="navElements">
+            <a href="#">About</a>
+            <a href="#">Store</a>
+        </div>
+        <div id="rightnav" class="navElements">
+            <a href="#">Gmail</a>
+            <a href="#">Images</a>
+        </div>
+    </nav>        
+</header>
+
+​
+<main>
+    <h1>Google</h1>
+    <input type="text"/>
+    <div id="buttonBox">
+        <button>Search</button>
+        <button>I'm feeling lucky</button>
+    </div>
+    
+</main>
+<footer>
+    <div id="topFooter">
+        <div id="bottomFooter">
+            Canada
+        </div>
+        <a href="#">Advertising</a>
+        <a href="#">Business</a>
+        <a href="#">How Search works</a>
+
+    </div>
+</footer>

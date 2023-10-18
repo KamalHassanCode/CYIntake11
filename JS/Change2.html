@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .button {
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: green;
+          color: white;
+          border: none;
+          cursor: pointer;
+        }
+      </style>
+      </head>
+      <body>
+      
+      <button class="button" id="toggleButton">Machine is on</button>
+      
+      <script>
+      const button = document.getElementById("toggleButton");
+      
+      button.addEventListener("click", function() {
+        if (button.textContent === "Machine is on") {
+          button.textContent = "Machine is off";
+        } else {
+          button.textContent = "Machine is on";
+        }
+      });
+      </script>
+      
+      </body>
+      </html>
+      
+    
+</body>
+</html>

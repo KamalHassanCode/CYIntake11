@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Post Data to API</h1>
+    <form id="postForm">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required><br><br>
+
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" required><br><br>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="body">Body:</label><br>
+        <textarea id="body" name="body" rows="4" required></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Posted Data</h2>
+    <div id="postedData"></div>
+    <script>
+        
+    const postForm = document.getElementById("postForm");
+
+    postForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(postForm);
+
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+            method: "POST",
+            body: JSON.stringify(Object.fromEntries(formData)),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            // Create a new element to display the posted data
+            const postedDataElement = document.createElement("div");
+            postedDataElement.innerHTML = `
+                <h2>Posted Data</h2>
+                <strong>ID:</strong> ${data.id}<br>
+                <strong>User ID:</strong> ${data.userId}<br>
+                <strong>Title:</strong> ${data.title}<br>
+                <strong>Body:</strong> ${data.body}<br>
+            `;
+
+            // Append the new element to the body
+            document.body.appendChild(postedDataElement);
+        })
+        .catch((error) => {
+            console.error("Error posting data:", error);
+        });
+    });
+
+
+
+
+
+
+    </script>
+</body>
+</html>

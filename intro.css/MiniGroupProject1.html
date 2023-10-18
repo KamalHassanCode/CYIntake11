@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Create a system for an online store.
+        // Use the provided objects and create functions that will, add an item to the cart, calculate the tax, calculate the total, remove an item from the cart, and checkout.
+        // Anytime the user checks out make sure to remove the quantity from the items stock
+        // I have created the addItems function to use as an example for the other functions.
+        let store = {
+            availableItems: [
+                {
+                    name: "skateboard",
+                    id: 1,
+                    price: 5.99,
+                    stock: 544
+                },
+                {
+                    name: "celery",
+                    id: 13,
+                    price: 1.99,
+                    stock: 13
+                },
+                {
+                    name: "bread",
+                    id: 3,
+                    price: 3.59,
+                    stock: 47
+                },
+                {
+                    name: "pumpkin",
+                    id: 14,
+                    price: 10.98,
+                    stock: 33
+                },
+                {
+                    name: "candy",
+                    id: 26,
+                    price: 1.99,
+                    stock: 400
+                }
+            ]
+        }
+        let cart = {
+            items: [
+                {
+                    name: "skateboard",
+                    id: 1,
+                    price: 5.99,
+                    quantity: 1
+                },
+                {
+                    name: "celery",
+                    id: 13,
+                    price: 1.99,
+                    quantity: 5
+                },
+                {
+                    name: "bread",
+                    id: 3,
+                    price: 3.59,
+                    quantity: 2
+                }
+            ],
+            total: 0,
+            grandTotal: 0
+        }
+        function addItem(itemName, quantity = 1) {
+            //Finding the item in the store object
+            let item = store.availableItems.find(element => element.name == itemName);
+            // Check to see if the item is already in the cart
+            let inCart = cart.items.find(element => element.name == itemName);
+            if (inCart) {
+                //If the item is already in the cart, increase its quantity
+                inCart.quantity += quantity
+            } else {
+                //If the item is not in the cart, Create a new object for that item and push it into the cart
+                let newItem = {
+                    name: item.name,
+                    id: item.id,
+                    price: item.price,
+                    quantity: quantity
+                }
+                cart.items.push(newItem)
+            }
+        }
+        function calculateTax () {
+            let taxRate = 0.13;
+            let tax = 0;
+            if(cart.length === 0) { return tax;}
+            let total = 0;
+            for (let item of cart) {
+                total = total + item.price * item.quantity;
+            }
+            
+            tax = taxRate * total
+            return tax;
+        }
+        
+        function calculateTotal () {
+        let total = 0;
+        if(cart.length === 0) { return total;}
+        for (let item of cart) {
+        total = total + item.price * item.quantity;
+        }
+        return total;
+    }
+        
+        function removeItem  (itemName) {
+            let inCart = cart.items.find(element => element.name == itemName);
+            if(!inCart) {return false;
+            }
+            cart.items.pop(inCart);
+            return true;
+        }
+        function calculateTotalWithCharges(cart) {
+        let subtotal = calculateTotal(cart);
+        let tax = calculateTax(cart); 
+        let total = subtotal + tax ;
+        return total;
+}
+function calculateGrandTotal() {
+    let subtotal = calculateTotal();
+    let tax = calculateTax(); 
+    
+    let grandTotal = subtotal + tax;
+    return grandTotal;
+}
+ 
+function updateStoreInventory() {
+    for (let cartItem of cart.items) {
+        let storeItem = store.availableItems.find(item => item.id === cartItem.id);
+        if (storeItem) {
+            storeItem.stock -= cartItem.quantity;
+        }
+    }
+}
+function checkout() {
+    let grandTotal = calculateGrandTotal();
+    cart.total = grandTotal;
+    cart.grandTotal = grandTotal;
+    updateStoreInventory();
+    cart.items = []; 
+    console.log("Successful checkout thanks for shopping!");
+}
+    </script>
+</body>
+</html>
+
+
+// Create an object that will handle all the rooms in the spaceship as well as what rooms connect together.
+        let spaceship = {
+        rooms: {
+        Living_quaters: {
+        name: "Living Quaters",
+        description: "Crew can relax here",
+      connectedRooms: ["dining_room", "life_support"]
+    },
+      dining_room: {
+      name: "Dining Room",
+      description: "Connects various rooms within the spaceship.",
+      connectedRooms: ["Living_quaters", "life_support", "engineering_room"]
+    },
+      life_Support: {
+      name: "Life Support",
+      description: "Crew's Med Bay",
+      connectedRooms: ["dining_room", "life support"]
+    },
+    engineering_room: {
+      name: "Engineering room",
+      description: "The powerhouse of the spaceship.",
+      connectedRooms: ["dining_room", "bridge"]
+    },
+    bridge: {
+      name: "bridge",
+      description: "Crew can move arounf in bridge",
+      connectedRooms: ["weapons", "engineering_room"],
+    },
+      weapons: {
+      name: "weapons",
+      description: "Access to Weapons here",
+      connectedRooms: ["dining_room", "bridge" ]
+      }
+
+        }
+    }
+    
+        // After creating the object, create a program that lets a user move through the spaceship.
+        let currentRoom = "dining_room"; // Start in the cockpit
+
+function moveThroughSpaceship(destination) {
+  let connectedRooms = spaceship.rooms[currentRoom].connectedRooms;
+
+  if (connectedRooms.includes(destination)) {
+    currentRoom = destination;
+    console.log(`Moved to ${destination}.`);
+    console.log(`You are now in the ${spaceship.rooms[life_support].name}.`);
+    console.log(spaceship.rooms[life_support].description);
+  } else {
+    console.log("Cannot move to that room from here.");
+  }
+}
+console.log(`You are currently in the ${spaceship.rooms[currentRoom].name}.`);
+console.log(spaceship.rooms[currentRoom].description);
+
+moveThroughSpaceship("life_support");
+moveThroughSpaceship("living_quaters");
+moveThroughSpaceship("enigneering_room");
+
+
+moveThroughSpaceship("Dining Area");
+moveThroughSpaceship("Weapons");
+moveThroughSpaceship("Bridge");
+moveThroughSpaceship("Living Quarters");
+moveThroughSpaceship("Life Support");
+moveThroughSpaceship("Engineering");
+
+
+
+// Create user objects
+let user1 = new User("User 1", "Living Quarters");
+let user2 = new User("User 2", "Bridge");
+
+// Example usage
+user1.moveThroughSpaceship("Dining Area");
+user2.moveThroughSpaceship("Weapons");
+user1.moveThroughSpaceship("Weapons");
+user2.moveThroughSpaceship("Bridge");
+

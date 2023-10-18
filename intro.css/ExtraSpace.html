@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+    <script>
+        let spaceship = {
+  rooms: [
+    {
+      name: "Living Quarters",
+      connections: ["Life Support", "Dining Area"]
+    },
+    {
+      name: "Life Support",
+      connections: ["Living Quarters", "Dining Area"]
+    },
+    {
+      name: "Dining Area",
+      connections: ["Life Support", "Living Quarters", "Engineering", "Weapons"]
+    },
+    {
+      name: "Weapons",
+      connections: ["Dining Area", "Bridge"]
+    },
+    {
+      name: "Bridge",
+      connections: ["Weapons", "Engineering"]
+    },
+    {
+      name: "Engineering",
+      connections: ["Dining Area", "Bridge"]
+    }
+  ]
+};
+
+class User {
+  constructor(name, startingLocation) {
+    this.name = name;
+    this.currentLocation = startingLocation;
+    this.availableRooms = spaceship.rooms.map(room => room.name);
+  }
+
+  moveThroughSpaceship(destination) {
+    const currentRoom = spaceship.rooms.find(room => room.name === this.currentLocation);
+
+    if (currentRoom.connections.includes(destination)) {
+      this.currentLocation = destination;
+      console.log(`${this.name} moved to ${destination}.`);
+      console.log(`${this.name} is now in the ${this.currentLocation}.`);
+    } else {
+      console.log(`${this.name} cannot move to ${destination}.`);
+      console.log(`The ${this.currentLocation} doesn't connect to ${destination}.`);
+    }
+  }
+}
+
+
+
+
+
+    </script>
+</body>
+</html>
